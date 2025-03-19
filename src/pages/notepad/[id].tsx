@@ -5,7 +5,6 @@ import { AddTask } from '../../components/add-task';
 
 export default async function NotepadPage({ id }: PageProps<'/notepad/[id]'>) {
     const notepad = await getNotepad(id)
-
     return <main>
         <h1>{notepad.name}</h1>
         <ul>
@@ -16,7 +15,7 @@ export default async function NotepadPage({ id }: PageProps<'/notepad/[id]'>) {
 }
 
 async function getNotepad(id : string) : Promise<Notepad> {
-    const file = readFileSync('./private/db.json', 'utf-8');
-    const notepads = JSON.parse(file) as Notepad[];
-    return notepads.find(notepad => notepad.id === id) as Notepad;
+    const file = readFileSync('./private/db.json', 'utf-8')
+    const notepads = JSON.parse(file) as Notepad[]
+    return notepads.find(notepad => notepad.id === id) as Notepad
 }

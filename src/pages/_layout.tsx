@@ -9,15 +9,13 @@ type RootLayoutProps = { children: ReactNode }
 export default async function RootLayout({ children }: RootLayoutProps) {
   const data = await getData()
 
-  return (
-    <div id="root">
-      <meta name="description" content={data.description} />
-      <link rel="icon" type="image/png" href={data.icon} />
-      <Header />
-      {children}     
-      <Footer />
-    </div>
-  );
+  return <div id="root">
+    <meta name="description" content={data.description} />
+    <link rel="icon" type="image/png" href={data.icon} />
+    <Header />
+    {children}
+    <Footer />
+  </div>
 }
 
 const getData = async () => {
@@ -25,11 +23,11 @@ const getData = async () => {
   const data = {
     description: 'An internet website!',
     icon: '/images/favicon.png',
-  };
+  }
 
-  return data;
-};
+  return data
+}
 
 export const getConfig = async () => {
-  return { render: 'static' } as const;
-};
+  return { render: 'static' } as const
+}
