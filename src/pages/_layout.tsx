@@ -21,6 +21,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
 }
 
 const getData = async () => {
+  'use server'
   const data = {
     description: 'An internet website!',
     icon: '/images/favicon.png',
@@ -30,7 +31,5 @@ const getData = async () => {
 };
 
 export const getConfig = async () => {
-  return {
-    render: 'static',
-  } as const;
+  return { render: 'static' } as const;
 };
